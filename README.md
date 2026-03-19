@@ -1,36 +1,23 @@
-# 会话 Web 应用模板
+# Conversation Web App Template
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-这是一个基于 [Next.js](https://nextjs.org/) 的项目，使用 [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) 初始化创建。
+## Config App
+Create a file named `.env.local` in the current directory and copy the contents from `.env.example`. Setting the following content:
+```
+# APP ID: This is the unique identifier for your app. You can find it in the app's detail page URL. 
+# For example, in the URL `https://cloud.dify.ai/app/xxx/workflow`, the value `xxx` is your APP ID.
+NEXT_PUBLIC_APP_ID=
 
----
-
-## 配置应用
-
-在当前目录下创建一个名为 `.env.local` 的文件，并复制 `.env.example` 的内容。然后填写以下配置：
-
-- **APP ID**：应用的唯一标识符。可以在应用详情页的 URL 中找到。  
-  例如，在 URL  
-  `https://cloud.dify.ai/app/xxx/workflow`  
-  中，`xxx` 就是你的 APP ID。  
-  ```env
-  NEXT_PUBLIC_APP_ID=
-APP API Key：用于认证应用 API 请求的密钥。
-可以在应用的 “API Access” 页面右上角点击 “API Key” 按钮生成。
-Env
-复制代码
+# APP API Key: This is the key used to authenticate your app's API requests. 
+# You can generate it on the app's "API Access" page by clicking the "API Key" button in the top-right corner.
 NEXT_PUBLIC_APP_KEY=
-APP URL：API 的基础地址。
-如果使用 Dify 云服务，设置为：
-复制代码
 
-https://api.dify.ai/v1
-Env
-复制代码
+# APP URL: This is the API's base URL. If you're using the Dify cloud service, set it to: https://api.dify.ai/v1.
 NEXT_PUBLIC_API_URL=
-更多配置
-在 config/index.ts 文件中进行配置：
-Ts
-复制代码
+```
+
+Config more in `config/index.ts` file:   
+```js
 export const APP_INFO: AppInfo = {
   title: 'Chat APP',
   description: '',
@@ -41,37 +28,53 @@ export const APP_INFO: AppInfo = {
 
 export const isShowPrompt = true
 export const promptTemplate = ''
-快速开始
-安装依赖
-Bash
-复制代码
+```
+
+## Getting Started
+First, install dependencies:
+```bash
 npm install
-# 或
+# or
 yarn
-# 或
+# or
 pnpm install
-启动开发服务器
-Bash
-复制代码
+```
+
+Then, run the development server:
+
+```bash
 npm run dev
-# 或
+# or
 yarn dev
-# 或
+# or
 pnpm dev
-打开浏览器访问：
-复制代码
+```
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-http://localhost:3000
-使用 Docker
-构建镜像
-Bash
-复制代码
+## Using Docker
+
+```
 docker build . -t <DOCKER_HUB_REPO>/webapp-conversation:latest
-运行容器
-Bash
-复制代码
+# now you can access it in port 3000
 docker run -p 3000:3000 <DOCKER_HUB_REPO>/webapp-conversation:latest
-打开浏览器访问：
-复制代码
+```
 
-http://localhost:3000
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+> ⚠️ If you are using [Vercel Hobby](https://vercel.com/pricing), your message will be truncated due to the limitation of vercel.
+
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
